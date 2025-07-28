@@ -45,16 +45,17 @@
   </style>
 </head>
 <body>
-  <h1>Kalkulator Epoxy Jogging Track</h1>
+  <h1>Kalkulator Luas Lintasan Jogging Track Oval</h1>
+  <h2>ADAM PRO COURT</h2>
 
   <label for="panjang">Panjang sisi lurus (L) [meter]</label>
-  <input type="number" id="panjang" placeholder="Misal: 60">
+  <input type="number" id="panjang" placeholder="Misal: 100">
 
   <label for="radius1">Radius ujung oval luar (R1) [meter]</label>
-  <input type="number" id="radius1" placeholder="Misal: 23">
+  <input type="number" id="radius1" placeholder="Misal: 20">
 
   <label for="radius2">Radius ujung oval dalam (R2) [meter]</label>
-  <input type="number" id="radius2" placeholder="Misal: 20">
+  <input type="number" id="radius2" placeholder="Misal: 17">
 
   <label for="lebar">Lebar lintasan (W) [meter]</label>
   <input type="number" id="lebar" placeholder="Misal: 3">
@@ -87,7 +88,7 @@
         Keliling Dalam (R2): ${K_in.toFixed(2)} m<br>
         Keliling Luar (R1): ${K_out.toFixed(2)} m<br>
         Panjang Rata-rata: ${K_avg.toFixed(2)} m<br>
-        <b>Luas Area Epoxy:</b> ${luas.toFixed(2)} m²<br>
+        <b>Luas Area Lintasan:</b> ${luas.toFixed(2)} m²<br>
         <b>Estimasi Kebutuhan Epoxy:</b> ${epoxy.toFixed(2)} kg (asumsi 1kg/4m²)
       `;
     }
