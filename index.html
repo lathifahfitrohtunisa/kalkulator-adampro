@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Epoxy Jogging Track</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator Epoxy Jogging Track</h1>
+
+  <label for="panjang">Panjang sisi lurus (L) [meter]</label>
+  <input type="number" id="panjang" placeholder="Misal: 60">
+
+  <label for="radius">Radius ujung oval (R) [meter]</label>
+  <input type="number" id="radius" placeholder="Misal: 20">
+
+  <label for="lebar">Lebar lintasan (W) [meter]</label>
+  <input type="number" id="lebar" placeholder="Misal: 3">
+
+  <button onclick="hitungEpoxy()">Hitung</button>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitungEpoxy() {
+      const L = parseFloat(document.getElementById('panjang').value);
+      const R = parseFloat(document.getElementById('radius').value);
+      const W = parseFloat(document.getElementById('lebar').value);
+
+      if (isNaN(L) || isNaN(R) || isNaN(W)) {
+        document.getElementById('hasil').innerHTML = '<span style="color:red">Mohon isi semua kolom dengan angka.</span>';
+        return;
+      }
+
+      const pi = Math.PI;
+      const K_in = 2 * L + 2 * pi * R;
+      const K_out = 2 * L + 2 * pi * (R + W);
+      const K_avg = (K_in + K_out) / 2;
+      const luas = K_avg * W;
+      const epoxy = luas / 4;
+
+      document.getElementById('hasil').innerHTML = `
+        <b>Hasil Perhitungan:</b><br>
+        Keliling Dalam: ${K_in.toFixed(2)} m<br>
+        Keliling Luar: ${K_out.toFixed(2)} m<br>
+        Panjang Rata-rata: ${K_avg.toFixed(2)} m<br>
+        <b>Luas Area Epoxy:</b> ${luas.toFixed(2)} m²<br>
+        <b>Estimasi Kebutuhan Epoxy:</b> ${epoxy.toFixed(2)} kg (asumsi 1kg/4m²)
+      `;
+    }
+  </script>
+</body>
+</html>
